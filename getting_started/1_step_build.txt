@@ -1,0 +1,24 @@
+1-STEP IMPLEMENTATION OF THE SWIFT LINUX ALGORITHMS (without creating an ISO file)
+Diet Swift Linux: sh diet.sh
+Regular Swift Linux: sh regular.sh
+Taylor Swift Linux: sh taylor.sh
+iCarly Swift Linux: sh icarly.sh
+Magnum P.I. Swift Linux: sh magnum.sh
+NASCAR Swift Linux: sh nascar.sh
+
+1-STEP CREATION OF THE SWIFT LINUX ISO FILE FROM THE ANTIX LINUX ISO FILE
+Diet Swift Linux: sh build-diet.sh
+Regular Swift Linux: sh build-regular.sh
+Taylor Swift Linux: sh build-taylor.sh
+iCarly Swift Linux: sh build-icarly.sh
+Magnum P.I. Swift Linux: sh build-magnum.sh
+NASCAR Swift Linux: sh build-nascar.sh
+
+SENDING FILES FROM THE GUEST OS TO THE HOST OS
+1.  From the Guest OS, go to Devices -> Shared Folders and select the /home/(username)/share directory on your host OS.  Select "Make Permanent".
+2.  Go to Devices -> Guest Additions.
+3.  In the Guest OS, enter "mkdir /home/(username)/host".
+4.  As root in the Guest OS, enter the command "mount /media/cdrom"
+5.  As root in the Guest OS, install the guest additions by going to /media/cdrom and running the VBoxLinuxAdditions-x86.run package (by entering "sh VBoxLinuxAdditions-x86.run").
+6.  After the guest additions have been added, enter as root in the guest OS "mount -t vboxsf share /home/(guest OS username)/host".
+7.  Now the /home/(guest OS username)/host directory in the guest OS is mirrored by the /home/(host OS username)/share directory in the host OS.

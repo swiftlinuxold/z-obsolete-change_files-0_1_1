@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<pinboard>
+  <backdrop style="Stretched">/usr/share/wallpaper/rox-swiftlinux.jpg</backdrop>
+  <icon x="142" y="462" label="Synaptic">/usr/share/applications/synaptic.desktop</icon>
+  <icon x="40" y="388" label="Searchmonkey">/usr/share/applications/searchmonkey.desktop</icon>
+  <icon x="116" y="250" label="Geany">/usr/share/applications/geany.desktop</icon>
+  <icon x="206" y="250" label="Leafpad">/usr/share/applications/leafpad.desktop</icon>
+  <icon x="32" y="324" label="Gnumeric">/usr/share/applications/gnumeric.desktop</icon>
+  <icon x="48" y="460" label="applications">/usr/share/applications</icon>
+  <icon x="204" y="184" label="Swift Linux Help">/usr/share/swiftlinux/help/index.html</icon>
+  <icon x="32" y="32" label="Files">~/</icon>
+  <icon x="34" y="252" label="Word">/usr/bin/abiword</icon>
+  <icon x="36" y="112" label="Video">/usr/bin/gnome-mplayer</icon>
+  <icon x="116" y="110" label="Music">/usr/bin/qmmp</icon>
+  <icon x="34" y="186" label="Terminal">/usr/bin/roxterm</icon>
+  <icon x="118" y="188" label="Control Center">/usr/local/bin/antixcc.sh</icon>
+  <icon x="118" y="34" label="Browser">/usr/bin/iceape</icon>
+</pinboard>
+

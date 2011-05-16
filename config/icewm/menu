@@ -1,0 +1,82 @@
+prog "Terminal" xterm roxterm
+prog "File Manager" folder thunar
+separator
+prog "Web Browser" /usr/share/pixmaps/iceape.xpm /usr/bin/iceape
+prog "Editor" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png leafpad
+prog "Screenshot" /usr/share/icons/gTangish-2.0a1/32x32/devices/camera-photo.png antixscreenshot.sh
+separator
+menufile "Applications" /usr/share/icons/gTangish-2.0a1/32x32/apps/blam.png application
+separator
+menu "Desktop" /usr/share/icons/gTangish-2.0a1/32x32/places/user-desktop.png {
+  menu "Settings" /usr/share/icons/gTangish-2.0a1/32x32/categories/preferences-desktop.png {
+	prog "RoxPanel on/off" /usr/share/icons/gTangish-2.0a1/32x32/apps/gnome-panel.png paneltoggle.sh
+	prog "RoxPinboard on/off" /usr/share/icons/gTangish-2.0a1/32x32/apps/preferences-desktop-wallpaper.png pinboardtoggle.sh 
+    separator
+    prog "Conky on/off" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-system-monitor.png conkytoggleice.sh
+  }
+  menu "IceWM" /usr/share/icewm/icons/icewm_32x32.xpm {
+	prog "IceWM Control Center" /usr/share/icons/gTangish-2.0a1/32x32/apps/wmtweaks.png /usr/local/bin/icewmcc/icewmcc.sh
+    separator
+	prog "Update Menu (Auto)" /usr/share/icons/gTangish-2.0a1/32x32/apps/gnome-settings-default-applications.png auto-icewm-menu.sh 
+  }
+}
+separator
+menu "Tools" /usr/share/icons/gTangish-2.0a1/32x32/categories/preferences-system.png {
+	menu "System" /usr/share/icons/gTangish-2.0a1/32x32/categories/preferences-desktop.png {
+                prog "System Information" /usr/share/icons/gTangish-2.0a1/32x32/devices/computer.png inxi-gui
+		prog "Process Viewer" htop.png roxterm -e htop
+		prog "App Killer" /usr/share/icons/gTangish-2.0a1/32x32/actions/dialog-cancel.png xkill
+        separator	
+                prog "Add .desktop Files" /usr/share/icons/gTangish-2.0a1/32x32/actions/gtk-edit.png gksu adddesktop.sh
+	}
+	menu "Filers" /usr/share/icons/gTangish-2.0a1/32x32/places/folder.png {
+		prog "Rox Filer" roxfiler.png rox
+		prog "MC File Manager" mc.xpm roxterm -e mc
+        separator
+        prog "Search" /usr/share/icons/gTangish-2.0a1/32x32/actions/edit-find.png searchmonkey
+	}
+	menu "Editors" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png {
+		prog "Nano" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png roxterm -e nano
+	}
+	menu "Shells" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-system.png {
+		prog "Bash" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -e bash --login
+		prog "Urxvt" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -tr -sh 65 -fg white
+		prog "Urxvt Tabs" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -pe tabbed
+	}
+	menu "Programming" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-development.png {
+		prog "Python" python.xpm roxterm -e python2.6
+		prog "Tclsh8.4" /usr/share/icons/gTangish-2.0a1/32x32/apps/glines.png roxterm -e tclsh8.4
+		prog "TkWish8.4" /usr/share/icons/gTangish-2.0a1/32x32/apps/gnect.png roxterm -e wish8.4
+	}
+}
+separator
+menu "Help" /usr/share/icons/gTangish-2.0a1/32x32/apps/help-browser.png {
+	menu "Swift Linux" folder {
+		prog "Swift Linux Help" - dillo /usr/share/swiftlinux/help/index.html
+	}
+	separator
+	menu "antiX" folder {
+		prog "antiX FAQ" - dillo /usr/share/antiX/FAQ/antiX-FAQ.html
+		prog "antiX How-To" - dillo http://antix.mepis.com/index.php/Howto_articles
+		separator
+		prog "Rox Manual" - dillo http://roscidus.com/Manual/Manual/Manual.html
+                prog "MEPIS Manual" - dillo /usr/share/mepis-manual/en/index.html
+	}
+	separator
+	menu "IceWM" folder {
+		prog "IceWM FAQ" - dillo http://www.icewm.org/FAQ/
+		prog "IceWM Manual" - dillo http://www.icewm.org/manual/
+		separator
+		prog "OSNews" - dillo http://www.osnews.com/story/7774/IceWM--The-Cool-Window-Manager/
+	}
+	separator
+	menu "Applications" folder {
+                prog "mtPaint" - dillo http://mtpaint.sourceforge.net/handbook/
+		prog "Partimage" - dillo http://www.partimage.org/Partimage-manual_Usage
+		prog "Firewall" - dillo https://help.ubuntu.com/community/Gufw
+	}
+	menu "Man Pages" folder {
+		prog "Backup" - roxterm -e man luckybackup
+	}
+}
+prog "Swift Linux Installer" - gksu minstall

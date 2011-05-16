@@ -1,0 +1,12 @@
+Make sure that the startup sound clip automatically plays when you start up.
+
+Make sure the right wallpaper is displayed in SLiM and on the ROX desktop.
+
+
+LIVECD
+
+Verify that the above criteria are met in the live CD
+
+POST-INSTALLATION
+
+The above criteria are met, except that the main menu should NOT include the option to install Swift Linux 

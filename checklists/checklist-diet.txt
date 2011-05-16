@@ -1,0 +1,107 @@
+SYNAPTIC
+
+NOTE: When I refer to "current testing" and "current stable", I'm referring to what was current at the time the particular version of antiX Linux was released.  If Debian has recently moved to new versions, the old testing branch is the new stable, and the old stable branch is the new oldstable.
+
+Go to /etc/apt/preferences and verify that the current testing branch has a pin priority of 995, and the current stable branch has a pin priority of 650.
+
+When you select "All" in the left window, are all 30,000+ packages displayed?
+
+Go to Settings -> Preferences -> General tab and make sure that "Consider recommended packages as dependencies" is NOT checked.
+
+Go to Settings -> Repositories, check to make sure that you see enabled:
+deb http://main.mepis-deb.org/mepiscr/repo/ mepis11cr main non-free
+deb http://restricted.mepis-deb.org/mepiscr/repo/ mepis11cr restricted restricted-non-free
+deb http://main.mepis-deb.org/mepiscr/testrepo/ mepis11cr test
+deb http://restricted.mepis-deb.org/mepiscr/testrepo/ mepis11cr test-restricted
+deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+deb http://security.debian.org/ wheezy/updates main contrib non-free 
+deb-src http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+deb http://ftp.us.debian.org/debian/ squeeze main contrib non-free 
+deb http://security.debian.org/ squeeze/updates main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ squeeze main contrib non-free 
+deb http://www.debian-multimedia.org wheezy main non-free
+deb http://www.debian-multimedia.org squeeze main non-free
+deb http://apt.progchild.de squeeze main
+deb-src http://apt.progchild.de squeeze main
+deb http://deb.opera.com/opera/ squeeze non-free
+deb http://download.virtualbox.org/virtualbox/debian squeeze contrib
+deb http://liquorix.net/debian/ sid main
+deb http://ftp.belnet.be/mirror/liquorix.net/debian sid main
+
+ICEAPE
+
+Open the Iceape Browser, go to the address "about:config", and enter "ipv6" for filter.  Make sure the network.dns.disableIPv6 value is true.
+
+Check the bookmarks in the Iceape browser.  Make sure anticapitalista's links and the Fluxbox links (under antiX) have been removed and the Swift Linux links have been added.
+
+Go to Edit -> Preferences -> Browser -> Tabbed Browsing .  Make sure "Switch to new tabs opened from links" is UNSELECTED.  In the "Link open behavior" and "Links from other applications" sections, make sure "A new tab in the current window" is SELECTED.
+
+Go to Youtube and try to play a video.  The video should be blocked by the Flash Blocker application.
+
+Make sure that when you close the Iceape browser, you get a dialog box asking you if you want to clear private data with all options selected.
+
+Check that /etc/hosts contains a long list of ad sites pointing to 127.0.0.1 (for blocking ads)
+
+WALLPAPER
+
+The available wallpapers in /home/$USERNAME/Wallpaper and /usr/share/wallpaper should be limited to the smaller image files (under 20 KB each) and rox-swiftlinux.jpg.
+
+The only options you should get when you go to Control Center -> Desktop Tab -> Choose Wallpaper are ROX-IceWM and SLiM.
+
+Verify that the Choose Wallpaper function works properly.
+
+SLIM
+
+At the login screen, pressing F1 for the session should only yield Rox-icewm.
+
+At the login screen, the default login is "demo".
+
+The login screen should show the standard Swift Linux background for SLiM.
+
+When you boot up the live CD, you should boot right into the system without having to log in.
+
+ROX PINBOARD DESKTOP
+
+All help pages should be accessible from the help icon.
+
+Conky should be visible in the lower middle part of the screen.
+
+Conky should display the correct edition and version number.
+
+The desktop should have the standard Swift Linux background for ROX.
+
+There should be icons for a file manager, web browser, video player, music player, terminal, control center, Swift Linux Help, Word, Geany, Leafpad, Gnumeric, Searchmonkey, applications, and Synaptic.
+
+ICEWM
+
+The options under Main menu -> Settings -> Themes options should be limited to only default, icedesert, nice, nice2, win95, and yellowmotif.
+
+The win95 theme should be already implemented.
+
+The main menu of the live CD should include a "Swift Linux Installer" option.  This option should NOT be available after Swift Linux is freshly installed on a hard drive.
+
+Make sure that the Help section of the main menu does not include links to deleted applications (such as Fluxbox)
+
+SWIFT LINUX CONTROL CENTER
+
+The Control Center should display "Swift Linux" instead of "antiX Linux".
+
+The Desktop tab should NOT display the button "Edit Fluxbox Settings".
+
+INSTALLED PACKAGES
+
+BleachBit should be installed.
+
+FIREWALL
+
+Become root and enter "ufw status" to verify that the firewall is activated.
+
+LIVECD
+
+Verify that the above criteria are met in the live CD
+
+The main menu should include an option to install Swift Linux
+
+POST-INSTALLATION
+
+The above criteria are met, except that the main menu should NOT include the option to install Swift Linux 

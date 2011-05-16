@@ -1,0 +1,39 @@
+#!/bin/bash
+
+## Auto update menu
+#python ~/.icewm/icemenuyap2.py > ~/.icewm/application ##This is old menu##
+
+auto-icewm-menu.sh &
+
+#killall icewmtray
+#icewmtray &
+#sleep 2 && wicd-client &
+
+#Use feh to set wallpaper
+eval `cat ~/.fehbgrox-ice` &
+
+conky &
+
+# xgamma -rgamma 1.3 -ggamma 1.3 -bgamma 1.3 # Uncomment this line if you need gamma correction.
+# Go to http://links.twibright.com/calibration.html to adjust your gamma.
+
+## Set desktop icons
+#pcmanfm --desktop &
+rox --pinboard=swift &
+
+# set live keyboard
+#setxkbmap
+
+########## PLAY STARTUP SOUND #########
+#play /usr/share/sounds/Pardus_Rocks/Pardus_Rocks-Logout.ogg > /dev/null 2>&1 &
+
+# Auto-mount usb devices in rox /media. Do not use with /etc/udev/rules.d/99-usbstorage.rules
+# Do not use if you use Thunar or pcmanfm file managers.
+#sleep 5 && devmon --exec-on-drive "rox /media" &
+
+## Set wallpaper via nitrogen
+#rm $HOME/.config/nitrogen/bg-saved.cfg
+#ln -s $HOME/.config/nitrogen/bg-saved-icewm.cfg $HOME/.config/nitrogen/bg-saved.cfg 
+#nitrogen --restore &
+
+sleep 5 && volumeicon &

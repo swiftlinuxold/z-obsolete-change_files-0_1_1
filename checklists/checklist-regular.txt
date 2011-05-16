@@ -1,0 +1,22 @@
+
+WALLPAPER
+
+Make sure the right SLiM and ROX pinboard wallpapers are displayed.
+
+ROX PINBOARD DESKTOP
+
+Conky should display the correct edition and version number.
+
+There should be icons for OpenOffice Writer, Calc, and Impress.
+
+FILE ASSOCIATIONS
+
+Make sure that clicking on .doc, .odt, .xls, .ods, .ppt, and .odp files automatically opens these files in OpenOffice, not Abiword or Gnumeric.
+
+LIVECD
+
+Verify that the above criteria are met in the live CD
+
+POST-INSTALLATION
+
+The above criteria are met, except that the main menu should NOT include the option to install Swift Linux 

@@ -1,0 +1,26 @@
+This project change_files contains the configuration files and scripts used to transform antiX Linux into Swift Linux.  Currently, the process of creating Swift Linux does NOT currently involve working directly with source code.
+
+GENERAL INFORMATION ON SWIFT LINUX
+
+Objective:
+The objective of Swift Linux is to create an operating system that offers lightweight operation, a large repository, AND user-friendliness.  This project will be considered complete when it has a license, the ability to play DVDs out of the box, a CD/DVD burning program with verification, a working firewall, and an installer that writes the GRUB entry as Swift Linux instead of antiX Linux.  This project will be considered successful when large numbers of Windows XP users convert to Swift Linux instead of upgrading to Windows 7 or replacing their computers.
+
+Context:
+At the time Swift Linux was conceived in late 2010, no distro had the combination of lightweight operation, a large repository, AND user-friendliness.  Linux Mint was user-friendly and fully compatible with the large Ubuntu software repository but had a high RAM requirement (512 MB).  Puppy Linux was user-friendly and had a low RAM requirement (only 128 MB) but had a weak repository.  
+
+antiX Linux, a lightweight distro based on MEPIS Linux, was the Linux distro that came closest to combining the strengths of Linux Mint and Puppy Linux.  Unlike Puppy Linux, antiX Linux was fully compatible with the large Debian repository.  Like Puppy Linux and unlike Linux Mint, antiX Linux was lightweight enough to run on computers from the Windows 98 era.  Like Puppy Linux and unlike base Debian, antiX Linux included a GUI and other basic software applications.  There are several different editions of antiX Linux: base vs. full and 486 vs. 686.  The full editions were more user-friendly than the base editions, and computers from before the Pentium II era are rare and becoming rarer each year.  Thus, the full 686 version of antiX Linux was chosen as the basis for Swift Linux.
+
+Goals:
+1.  Provide Windows XP users a Linux distro that allows them to continue using their old computers instead of replacing them with new ones when Windows XP support is terminated in 2014.
+2.  Provide FreeGeek groups a lighter alternative to Ubuntu Linux so they can revive computers with little or no resale value.
+3.  Keep the Swift Linux ISO for all editions small enough to fit onto a CD until DVD burners become common even on old computers.
+4.  Become one of the top 10 Linux distributions on DistroWatch by 2014.
+
+Deliverables:
+1.  ISO files small enough to fit onto a CD
+2.  Diet Swift Linux: This is the base edition of Swift Linux.  OpenOffice is not included.  This edition of Swift Linux targets the lower portion of the Linux market and is intended for Linux users who consider OpenOffice to be bloatware.
+3.  Regular Swift Linux: This is Diet Swift Linux with OpenOffice pre-installed.  This edition of Swift Linux targets the middle and upper portions of the Linux market and is intended to save users the time needed to download OpenOffice.  Regular Swift Linux is also the basis for the special editions of Swift Linux.
+4.  Special editions of Swift Linux: This includes Taylor Swift Linux, iCarly Swift Linux, Magnum P.I. Swift Linux, and NASCAR Swift Linux.  These special editions are Regular Swift Linux with special wallpaper and a startup sound clip.  Hannah Montana Linux is the inspiration for these pure marketing gimmicks.  Note that all special editions must have a positive connotation and be consistent with the image of Swift Linux.
+
+Scope:
+Modifying antiX Linux is within the scope of Swift Linux.  Modifying Debian Linux is not.

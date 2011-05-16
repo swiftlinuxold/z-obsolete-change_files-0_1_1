@@ -1,0 +1,61 @@
+# See sources.list(5) for more information
+
+# Note:If you want maximum stability, only use the squeeze/squeeze repos.
+
+# MEPIS 11 series. 
+# Uncomment all MEPIS repos shown here to install headers and linux-kbuild
+# from MEPIS repo for latest MEPIS kernel (2.6.36). Then comment back once installed.
+#deb ftp://ftp.mepis.com/mepis/ mepis-11.0 main
+#deb http://fr1.mepis-deb.org/mepis/ mepis-11.0 main
+#deb http://www.mirrorservice.org/sites/ftp.mepis.org/mepis/ mepis-11.0 main 
+
+# Mepis Community Main, Restricted, and Test Repos
+# Use these repos ONLY if you enable Debian STABLE (squeeze) repo.
+#deb http://main.mepis-deb.org/mepiscr/repo/ mepis11cr main non-free
+#deb http://restricted.mepis-deb.org/mepiscr/repo/ mepis11cr restricted restricted-non-free
+#deb http://main.mepis-deb.org/mepiscr/testrepo/ mepis11cr test
+#deb http://restricted.mepis-deb.org/mepiscr/testrepo/ mepis11cr test-restricted
+
+# Debian Wheezy. Default for Swift Linux.
+# Wheezy enabled for 'rolling' release.
+deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+deb http://security.debian.org/ wheezy/updates main contrib non-free 
+#deb-src http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+
+# Debian Squeeze.
+# Since 06-Feb-2011 this is known as "Squeeze". Use for maximum stability INSTEAD of
+# the 'rolling' WHEEZY release concept.
+# So, for max stability, UNCOMMENT the next two 'deb' lines and
+# COMMENT-OUT the corresponding 'deb' lines in WHEEZY above.
+deb http://ftp.us.debian.org/debian/ squeeze main contrib non-free 
+deb http://security.debian.org/ squeeze/updates main contrib non-free
+#deb-src http://ftp.us.debian.org/debian/ squeeze main contrib non-free 
+
+# Multimedia Squeeze and Wheezy
+# Use to install libdvdcss2 and codecs.
+deb http://www.debian-multimedia.org wheezy main non-free
+deb http://www.debian-multimedia.org squeeze main non-free
+
+# goggles music manager
+deb http://apt.progchild.de/debian/ squeeze main
+#deb-src http://apt.progchild.de/debian/ squeeze main
+
+# opera
+deb http://deb.opera.com/opera/ squeeze non-free
+
+# virtualbox
+deb http://download.virtualbox.org/virtualbox/debian/ squeeze contrib
+
+# liquorix kernels
+# deb http://liquorix.net/debian/ sid main
+# deb http://ftp.belnet.be/mirror/liquorix.net/debian sid main
+
+# Libre-kernel
+# deb http://linux-libre.fsfla.org/pub/linux-libre/planet planet main
+
+###### Debian Unstable/Sid##########
+###### Use at your own risk! ########
+#deb http://ftp.us.debian.org/debian/ unstable main contrib non-free
+#deb http://www.debian-multimedia.org unstable main non-free
+
+

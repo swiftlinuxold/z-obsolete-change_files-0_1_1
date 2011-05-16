@@ -1,0 +1,650 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head><body>
+<h1>Forensic Swift Linux Help</h1>
+Forensic Swift Linux is included with every edition of Swift Linux EXCEPT Diet Swift Linux.
+<BR><BR>
+Here is the list of included
+forensic/recovery/rescue programs with brief summaries of what they do.
+(Source: Synaptic) For a more detailed explanation of what these
+programs do, open a terminal and type "man (program)". Most of these
+programs can only be run from the command line.
+<br><br>Please note that many of these programs can only be run as
+root, so you'll have to enter the "su" command and provide the root
+password before you can proceed.
+
+<h3>autopsy</h3>
+The Autopsy Forensic Browser is a graphical interface to the command line
+digital forensic analysis tools in The Sleuth Kit. Together, The Sleuth Kit
+and Autopsy provide many of the same features as commercial digital forensics
+tools for the analysis of Windows and UNIX file systems (NTFS, FAT, FFS,
+EXT2FS, and EXT3FS).
+
+<h3>bkhive</h3>
+This tool is designed to recover the syskey bootkey from a Windows NT/2K/XP
+system hive. Then we can decrypt the SAM file with the syskey and dump
+password hashes.
+<br><br>
+Syskey is a Windows feature that adds an additional encryption layer to the
+password hashes stored in the SAM database.
+
+<h3>chkrootkit</h3>
+The chkrootkit security scanner searches the local system for signs
+that it is infected with a 'rootkit'. Rootkits are set of programs
+and hacks designed to take control of a target machine by using known
+security flaws.
+<br><br>
+Types that chkrootkit can identify are listed on the project's home page.
+<br><br>
+Please note that where chkrootkit detects no intrusions, this does
+not guarantee that the system is uncompromised. In addition to
+running chkrootkit, more specific tests should always be performed.
+
+<h3>chntpw</h3>
+This little program provides a way to view information and
+change user passwords in a Windows NT/2000 user database file.
+Old passwords need not be known since they are overwritten.
+In addition it also contains a simple registry editor
+(same size data writes) and an hex-editor which enables you to
+fiddle around with bits and bytes in the file as you wish.
+<br><br>
+If you want GNU/Linux boot disks for offline password recovery
+you can add this utility to custom image disks or use those provided
+at the tools homepage.
+
+<h3>dares-qt</h3>
+Dares scans a CD/DVD image or a CD/DVD for files. This also works when
+the filesystem (ISO-9660 or UDF) on the disc is damaged and cannot be mounted
+anymore.
+
+
+<h3>dcfldd</h3>
+Based on the dd program with the following additional features:<br>
+ - Hashing on-the-fly, dcfldd can hash the input data as it is being
+   transferred, helping to ensure data integrity.<br>
+ - Status output, dcfldd can update the user of its progress in terms of the
+   amount of data transferred and how much longer operation will take.<br>
+ - Flexible disk wipes, dcfldd can be used to wipe disks quickly and with a
+   known pattern if desired.<br>
+ - Image/wipe Verify, dcfldd can verify that a target drive is a bit-for-bit
+   match of the specified input file or pattern.<br>
+ - Multiple outputs, dcfldd can output to multiple files or disks at the same
+   time.<br>
+ - Split output, dcfldd can split output to multiple files with more
+   configurability than the split command.<br>
+ - Piped output and logs, dcfldd can send all its log data and output to
+   commands as well as files natively.<br>
+
+<h3>ddrescue</h3>
+dd_rescue is a tool to help you to save data from crashed partition.
+It tries to read and if it fails, it will go on with the next sectors
+where tools like dd will fail. If the copying process is interrupted
+by the user it is possible to continue at any position later.
+It can copy backwards.
+
+<h3>dvdisaster</h3>
+dvdisaster provides a margin of safety against data loss on CD and DVD media
+caused by scratches or aging media. It creates error correction data which is
+used to recover unreadable sectors if the disc becomes damaged at a later time.
+
+<h3>e2fsck-static</h3>
+This may be of some help to you if your filesystem gets corrupted enough
+to break the shared libraries used by the dynamically linked checker.
+<br><br>
+This binary takes much more space than its dynamic counterpart located
+in e2fsprogs, though.
+<br><br>
+You may want to install a statically-linked shell as well, to be able
+to run this program if something like your C library gets corrupted.
+
+<h3>e2undel</h3>
+Interactive console tool to recover the data of deleted files on
+an ext2 file system under Linux. It does not require knowledge
+about how ext2 file systems works and should be usable by
+most people.
+<br><br>
+This tools searches all inodes marked as deleted on a file system and
+lists them as sorted by owner and time of deletion. Additionally,
+it gives you the file size and tries to determine the file type in
+the way file(1) does. If you did not just delete a whole bunch of
+files with a 'rm -r *', this information should be helpful to find
+out which of the deleted files you would like to recover.
+<br><br>
+E2undel will not work on ext3 (journaling) filesystems.
+
+<h3>ext3grep</h3>
+ext3grep is a simple tool intended to aid anyone who accidentally deletes a
+file on an ext3 filesystem, only to find that they wanted it shortly
+thereafter.
+
+<h3>foremost</h3>
+This is a console program to recover files based on their headers and footers
+for forensics purposes.
+<br><br>
+Foremost can work on disk image files, such as those generated by dd,
+Safeback, Encase, etc, or directly on a drive. The headers and footers are
+specified by a configuration file, so you can pick and choose which headers
+you want to look for.
+
+<h3>gddrescue</h3>
+It copies data from one file or block device (hard disc, cdrom, etc)
+to another, trying hard to rescue data in case of read errors.
+<br><br>
+gddrescue does not truncate the output file if not asked to.
+So, every time you run it on the same output file,
+it tries to fill in the gaps.
+<br><br>
+The basic operation of ddrescue is fully automatic.
+That is, you don't have to wait for an error, stop the program,
+read the log, run it in reverse mode, etc.
+If you use the logfile feature of ddrescue, the data is rescued
+very efficiently (only the needed blocks are read).
+Also you can interrupt the rescue at any time and resume it later
+at the same point.
+<br><br>
+Automatic merging of backups: If you have two or more damaged
+copies of a file, cdrom, etc, and run ddrescue on all of them,
+one at a time, with the same output file, you will probably obtain
+a complete and error-free file. This is so because the probability
+of having damaged areas at the same places on different input files
+is very low. Using the logfile, only the needed blocks are read from
+the second and successive copies.
+<br><br>
+The logfile is periodically saved to disc. So in case of a crash you
+can resume the rescue with little recopying. Also, the same logfile
+can be used for multiple commands that copy different areas of the
+file, and for multiple recovery attempts over different subsets.
+<br><br>
+gddrescue aligns its I/O buffer to the sector size so that it can be
+used to read from raw devices. For efficiency reasons, also aligns it
+to the memory page size if page size is a multiple of sector size.
+
+<h3>gpar2</h3>
+A simple, easy to use graphical interface for verification and repair of
+PAR v1.0 and PAR v2.0(PAR2) recovery sets. PAR1 support is currently minimal,
+as it is deprecated this most likely will not change, so do not expect the
+headers, progress, output, and status to update when performing actions
+on these.
+
+<h3>gpart</h3>
+Gpart is a tool which tries to guess the primary partition table of a
+PC-type disk in case the primary partition table in sector 0 is
+damaged, incorrect or deleted.
+<br><br>
+It is also good at finding and listing the types, locations, and
+sizes of inadvertently-deleted partitions, both primary and logical.
+It gives you the information you need to manually re-create them
+(using fdisk, cfdisk, sfdisk, etc.).
+<br><br>
+The guessed table can also be written to a file or (if you firmly
+believe the guessed table is entirely correct) directly to a disk
+device.
+<br><br>
+Supported (guessable) filesystem or partition types:<br>
+
+ * BeOS filesystem type.<br>
+ * FreeBSD/NetBSD/386BSD disklabel sub-partitioning<br>
+   scheme used on Intel platforms.<br>
+ * Linux second extended filesystem.<br>
+ * MS-DOS FAT12/16/32 "filesystems".<br>
+ * IBM OS/2 High Performance filesystem.<br>
+ * Linux LVM physical volumes (LVM by Heinz Mauelshagen).<br>
+ * Linux swap partitions (versions 0 and 1).<br>
+ * The Minix operating system filesystem type.<br>
+ * MS Windows NT/2000 filesystem.<br>
+ * QNX 4.x filesystem.<br>
+ * The Reiser filesystem (version 3.5.X, X &gt; 11).<br>
+ * Sun Solaris on Intel platforms uses a sub-partitioning<br>
+   scheme on PC hard disks similar to the BSD disklabels.<br>
+ * Silicon Graphics' journalling filesystem for Linux.<br>
+<br><br>
+Other types may be added relatively easily, as separately compiled modules.
+<h3>guymager</h3>
+The forensic imager contained in this package, guymager, was designed to
+support different image file formats, to be most user-friendly and to run
+really fast. It has a high speed multi-threaded engine using parallel
+compression for best performance on multi-processor and hyper-threading
+machines.
+
+<h3>gzrt</h3>
+
+gzrecover will attempt to skip over corrupted data in a gzip archive,
+thereby allowing the remaining data to be recovered.
+<br><br>
+Please install cpio to facilitate recovery from damaged gzipped tarballs.
+
+<h3>hfsplus</h3>
+HFS+ is a modernized version of Apple Computers HFS Filesystem.
+Nowadays, it is widely used with more recent versions of MacOS.
+hfsplus consists of a library and a set of tools that allow access
+to HFS+ volumes.
+<br><br>
+This package contains the tools themselves.
+
+<h3>hfsutils</h3>
+HFS is the native Macintosh filesystem format.
+<br><br>
+This package contains xhfs, a Tk-based X windows interface, and hfssh,
+a Tcl-based shell.
+
+
+<h3>jfsutils</h3>
+Utilities for managing IBM's Journaled File System (JFS) under Linux.
+<br><br>
+IBM's journaled file system technology, currently used in IBM
+enterprise servers, is designed for high-throughput server
+environments, key to running intranet and other high-performance
+e-business file servers.
+<br><br>
+The following utilities are available:<br>
+fsck.jfs - initiate replay of the JFS transaction log, and check and repair a
+JFS formatted device.
+logdump - dump a JFS formatted device's journal log.<br>
+logredo - "replay" a JFS formatted device's journal log.<br>
+mkfs.jfs - create a JFS formatted partition.<br>
+xchkdmp - dump the contents of a JFS fsck log file created with xchklog.<br>
+xchklog - extract a log from the JFS fsck workspace into a file.<br>
+xpeek - shell-type JFS file system editor.
+
+<h3>john</h3>
+john, mostly known as John the Ripper, is a tool designed to help systems
+administrators to find weak (easy to guess or crack through brute force)
+passwords, and even automatically mail users warning them about it, if it
+is desired.
+<br><br>
+It can also be used with different cyphertext formats, including Unix's
+DES and MD5, Kerberos AFS passwords, Windows' LM hashes, BSDI's extended DES,
+and OpenBSD's Blowfish.
+
+<h3>lde</h3>
+This allows you to view some Linux fs's (a la Norton disk edit), hex block
+and inode editing are now supported and you can use it to dump an erased file
+to another partition with a little bit of work.  Supports ext2, minix,
+and msdos.
+
+<h3>lsscsi</h3>
+Uses information in sysfs (Linux kernels 2.6.0 and later) to list all
+scsi devices (or hosts) currently attached to the system. Options can
+be used to control the amount and form of information provided for each
+device.
+
+<h3>magicrescue</h3> 
+Magic Rescue scans a block device for file types it knows how to recover
+and calls an external program to extract them. It looks at "magic bytes"
+in file contents, so it can be used both as an undelete utility and for
+recovering a corrupted drive or partition. As long as the file data is
+there, it will find it.
+
+<h3>mtd-utils</h3>
+Utilities for manipulating memory technology devices, such as flash
+memory, Disk-On-Chip, or ROM.  Includes mkfs.jffs2, a tool to create
+JFFS2 (journaling flash file system) filesystems.
+
+<h3>myrescue</h3>
+myrescue is a program to rescue the still-readable data from a damaged
+harddisk. It is similar in purpose to dd_rescue, but it tries to quickly get
+out of damaged areas to first handle the not yet damaged part of the disk and
+return later.
+
+<h3>ntfs-3g</h3>
+The ntfs-3g driver is an open source, GPL licensed, third generation Linux
+NTFS driver which was implemented by the Linux-NTFS project. It provides
+full read-write access to NTFS, excluding access to encrypted files, writing
+compressed files, changing file ownership, access right.
+<br><br>
+Technically it's based on and a major improvement to the third generation
+Linux NTFS driver, ntfsmount. The improvements includes functionality,
+quality and performance enhancements.
+<br><br>
+ntfs-3g is based on FUSE (userspace filesystem framework for Linux), thus
+you will have to prepare fuse kernel module to be able to use it.
+<br><br>
+Fuse is available in any recent kernel. No need to prepare a kernel module
+if you are already running Debian Etch kernel or newer.
+
+<h3>ntfsprogs</h3>
+The Linux-NTFS project (http://www.linux-ntfs.org/) aims to bring full
+support for the NTFS filesystem to the Linux operating system.
+<br><br>
+This is a set of tools targeted for people interested in working
+with the NTFS support in the Linux kernel and using it.  The
+following utilities are included:
+<br><br>
+ntfsfix - Fix common filesystem errors and force Windows to check NTFS.
+<br><br>
+mkntfs - Format a partition with an NTFS filesystem, optionally bootable.
+<br><br>
+ntfsinfo - Show some information about an NTFS partition or one of the
+files or directories within it.
+<br><br>
+ntfslabel - Show, or set, an NTFS partition's volume label.
+<br><br>
+ntfsresize - Resize an NTFS partition without losing data.
+<br><br>
+ntfsundelete - Recover deleted files from an NTFS partition.
+<br><br>
+ntfscluster - Locate the owner of any given sector or cluster on an NTFS
+partition.
+<br><br>
+ntfscat - Concatenate files and print them on the standard output
+(without mounting the partition).
+<br><br>
+ntfsls - List directory contents on an NTFS filesystem (without
+mounting).
+<br><br>
+ntfscp - Overwrite files on an NTFS partition.
+<br><br>
+ntfsclone - Efficiently clone an NTFS filesystem or a part of it.
+<br><br>
+ntfsmount - Mount an NTFS partition from user-space using libntfs and FUSE.
+<br><br>
+ntfsdecrypt - Decrypt NTFS-encrypted files (NOT INCLUDED).
+<br><br>
+ntfscmp - Compare two NTFS volumes and tell the differences.
+
+<h3>ophcrack</h3>
+Ophcrack is a Windows password cracker based on a time-memory trade-off
+using rainbow tables. This is a new variant of Hellman's original trade-off,
+with better performance. It recovers 99.9% of alphanumeric passwords in
+seconds.
+<br><br>
+It works for Windows NT/2000/XP/Vista.
+<br><br>
+A Gtk based UI is included.
+
+<h3>ophcrack-cli</h3>
+Ophcrack is a Windows password cracker based on a time-memory trade-off
+using rainbow tables. This is a new variant of Hellman's original trade-off,
+with better performance. It recovers 99.9% of alphanumeric passwords in
+seconds.
+<br><br>
+It works for Windows NT/2000/XP/Vista.
+<br><br>
+This package contains ophcrack with command line interface only.
+
+<h3>par2</h3>
+A command line implementation of the PAR v2.0 specification.  This
+specification is used for parity checking and repair of a file set.
+If the files in the recovery set ever get damaged (e.g. when they are
+transmitted or stored on a faulty disk) the client can read the damaged
+input files, read the (possibly damaged) PAR files, and regenerate the
+original input files. Of course, not all damages can be repaired, but
+many can.
+<h3>parchive</h3>
+This utility applies the data-recovery capability concepts of RAID-like
+systems to the posting and downloading of multi-part archives on USENET by
+providing the ability to create and use redundant recovery records.  It
+supports the 'Reed-Soloman Code' implementation that allows for recovery of
+any 'X' volumes for 'X' parity volumes present.  It is popularly used on
+USENET postings, but is not limited to this use.
+<br><br>
+The Debian parchive package supports "legacy" version 1.0 PAR files.
+The Debian par2 package supports version 2.0 PAR files.
+
+<h3>partimage</h3>
+Partition Image is a partition imaging utility. It has support for the
+following file systems:<br>
+ * Ext2/3, the Linux standard<br>
+ * ReiserFS, a journalised and powerful file system<br>
+ * FAT16/32, DOS and Windows file systems<br>
+ * HPFS, IBM OS/2 file system<br>
+ * JFS, journalised file system, from IBM, used on AIX<br>
+ * XFS, another journalised and efficient file system, from SGI, used on Irix<br>
+ * UFS (beta), Unix file system<br>
+ * HFS (beta), MacOS File system<br>
+ * NTFS (experimental), Windows NT, 2000 and XP<br>
+Only used blocks are copied and stored into an image file.
+The image file can be compressed in the GZIP/BZIP2 formats to save disk space,
+and split into multiple files to be copied onto removable media (ZIP for
+example), burned on a CD-R, etc.
+
+This makes it possible to save a full Linux/Windows system with a single
+operation. In case of a problem (virus, crash, error, etc.), you just have
+to restore, and after several minutes, your entire system is restored
+(boot, files, etc.), and fully working.
+
+This is very useful when installing the same software on many machines: just
+install one of them, create an image, and restore the image on all other
+machines.
+<h3>pasco</h3>
+Pasco is a forensic tool that examines the content of cache files (index.dat)
+produced by Microsofts Internet Explorer.
+<br><br>
+It parses the file and outputs a field separated that can be loaded in a
+spreadsheet.
+
+<h3>rdd</h3>
+A forensic copy program developed at and used by
+the Netherlands Forensic Institute (NFI). Unlike most copy programs, rdd is
+robust with respect to read errors, which is an important property in a
+forensic operating environment.
+
+<h3>readpst</h3>
+ReadPST is an application that can take a Microsoft Outlook PST
+(Personal Folders) file and convert it into mbox, kmail, its own
+recursive format, or separate each email into its own file.
+
+It can currently handle emails, folders and most contacts.
+
+<h3>recover</h3>
+Recover automates some steps as described in the ext2-undeletion
+howto. This means it seeks all the deleted inodes on your hard drive
+with debugfs. When all the inodes are indexed, recover asks you some
+questions about the deleted file. These questions are:<br>
+  * Hard disk device name<br>
+  * Year of deletion<br>
+  * Month of deletion<br>
+  * Weekday of deletion<br>
+  * First/Last possible day of month<br>
+  * Min/Max possible file size<br>
+  * Min/Max possible deletion hour<br>
+  * Min/Max possible deletion minute<br>
+  * User ID of the deleted file<br>
+  * A text string the file included (can be ignored)
+<br><br>
+If recover found any fitting inodes, it asks to give a directory name
+and dumps the inodes into the directory. Finally it asks you if you
+want to filter the inodes again (in case you typed some wrong
+answers).
+<br><br>
+Note that recover works only with ext2 filesystems - it does not support
+ext3.
+
+
+<h3>recoverdm</h3>
+This program will help you recover disks with bad sectors. You can recover
+files as well complete devices. In case if finds sectors which simply cannot be
+recoverd, it writes an empty sector to the outputfile and continues.
+<br><br>
+If you're recovering a CD or a DVD and the program cannot read the sector in
+"normal mode", then the program will try to read the sector in "RAW mode"
+(without error-checking etc.). This toolkit also has a utility called
+'mergebad' which merges multiple images into one.
+
+<h3>recoverjpeg</h3>
+Recoverjpeg tries to identify jpeg pictures from a filesystem image.
+To achieve this goal, it scans the filesystem image and looks for a
+jpeg structure at blocks starting at 512 bytes boundaries.
+
+<h3>reiser4progs</h3>
+The following utilities to manage Reiser4 filesystems are provided:
+  - debugfs.reiser4<br>
+  - fsck.reiser4<br>
+  - measurefs.reiser4<br>
+  - mkfs.reiser4
+<h3>reiserfsprogs</h3>
+This package contains utilities to create, check, resize, and debug
+ReiserFS filesystems.
+
+<h3>rifiuti</h3>
+Rifiuti is a tool to examine the INFO2 files found in the MS Windows
+recycle bins.
+
+The INFO2 file gives meta informations about the files found in the
+recycle bin.
+
+<h3>rifiuti2</h3>
+Rifiuti2 is a rewrite of rifiuti, a tool for analyzing Windows Recycle Bin
+INFO2 file.
+<br><br>
+Analysis of Windows Recycle Bin is usually carried out during Windows computer
+forensics. Rifiuti2 can extract file deletion time, original path and size of
+deleted files and whether the deleted files have been moved out from the
+recycle bin since they are trashed. It supports the INFO2 file format found in
+Windows up to Window XP as well as the new file format found in Vista.
+
+<h3>safecopy</h3> 
+Safecopy is a data recovery tool which tries to extract as much data as
+possible from a seekable, but problematic (i.e. damaged sectors) source - like
+floppy drives, harddisk partitions, CDs, ..., where other tools like dd would
+fail due to I/O errors.
+
+<h3>scalpel</h3>
+A fast file carver that reads a database of header and footer definitions
+and extracts matching files from a set of image files or raw device files.
+Scalpel is filesystem-independent and will carve files from FATx, NTFS, ext2/3,
+or raw partitions. It is useful for both digital forensics investigation and
+file recovery.
+
+<h3>sleuthkit</h3>
+The Sleuth Kit (previously known as TASK) is a collection of UNIX-based
+command line file system and media management forensic analysis tools.
+The file system tools allow you to examine file systems of a suspect
+computer in a non-intrusive fashion. Because the tools do not rely on
+the operating system to process the file systems, deleted and hidden
+content is shown.
+<br><br>
+The media management tools allow you to examine the layout of disks and
+other media. The Sleuth Kit supports DOS partitions, BSD partitions
+(disk labels), Mac partitions, and Sun slices (Volume Table of
+Contents). With these tools, you can identify where partitions are
+located and extract them so that they can be analyzed with file system
+analysis tools.
+<br><br>
+When performing a complete analysis of a system, we all know that
+command line tools can become tedious. The Autopsy Forensic Browser is
+a graphical interface to the tools in The Sleuth Kit, which allows you
+to more easily conduct an investigation. Autopsy provides case
+management, image integrity, keyword searching, and other automated
+operations.
+
+<h3>scrounge-ntfs</h3>
+Utility that can rescue data from corrupted NTFS partitions writes the files
+retrieved to another working file system.
+
+<h3>squashfstools</h3>
+Squashfs is a highly compressed read-only filesystem for Linux. It uses zlib
+compression to compress both files, inodes and directories. Inodes in the
+system are very small and all blocks are packed to minimise data overhead.
+Block sizes greater than 4K are supported up to a maximum of 64K.
+<br><br>
+Squashfs is intended for general read-only filesystem use, for archival use
+(i.e. in cases where a .tar.gz file may be used), and in constrained block
+device/memory systems (e.g. embedded systems) where low overhead is needed.
+
+<h3>sshfs</h3>
+sshfs is a filesystem client based on the SSH File Transfer Protocol.
+Since most SSH servers already support this protocol it is very easy
+to set up: i.e. on the server side there's nothing to do.  On the
+client side mounting the filesystem is as easy as logging into the
+server with ssh.
+
+<h3>tct </h3>
+The Coroner's Toolkit (TCT) is a collection of programs by Dan Farmer and
+Wietse Venema for a post-mortem analysis of a UNIX system after a break-in.
+TCT enables you to collect date regarding deleted files, modification times
+of files and more.
+<br><br>
+Install this BEFORE you need to use it, so you don't risk destroying
+essential forensic data before you begin.
+<br><br>
+Tools contained within this package: grave-robber, lazarus,
+inode-cat (ex icat), ils, unrm and pcat.
+
+<h3>testdisk</h3>
+TestDisk checks the partition and boot sectors of your disks.
+ It is very useful in recovering lost partitions.
+ It works with :<br>
+ * DOS/Windows FAT12, FAT16 and FAT32<br>
+ * NTFS ( Windows NT/2K/XP )<br>
+ * Linux Ext2 and Ext3<br>
+ * BeFS ( BeOS )<br>
+ * BSD disklabel ( FreeBSD/OpenBSD/NetBSD )<br>
+ * CramFS (Compressed File System)<br>
+ * HFS and HFS+, Hierarchical File System<br>
+ * JFS, IBM's Journaled File System<br>
+ * Linux Raid<br>
+ * Linux Swap (versions 1 and 2)<br>
+ * LVM and LVM2, Linux Logical Volume Manager<br>
+ * Netware NSS<br>
+ * ReiserFS 3.5 and 3.6<br>
+ * Sun Solaris i386 disklabel<br>
+ * UFS and UFS2 (Sun/BSD/...)<br>
+ * XFS, SGI's Journaled File System<br>
+ <br><br>
+ PhotoRec is file data recovery software designed to recover
+ lost pictures from digital camera memory or even Hard Disks.
+ It has been extended to search also for non audio/video headers.
+ It searchs for<br>
+ * Sun/NeXT audio data (.au)<br>
+ * RIFF audio/video (.avi/.wav)<br>
+ * BMP bitmap (.bmp)<br>
+ * bzip2 compressed data (.bz2)<br>
+ * Source code written in C (.c)<br>
+ * Canon Raw picture (.crw)<br>
+ * Canon catalog (.ctg)<br>
+ * FAT subdirectory<br>
+ * Microsoft Office Document (.doc)<br>
+ * Nikon dsc (.dsc)<br>
+ * HTML page (.html)<br>
+ * JPEG picture (.jpg)<br>
+ * MOV video (.mov)<br>
+ * MP3 audio (MPEG ADTS, layer III, v1) (.mp3)<br>
+ * Moving Picture Experts Group video (.mpg)<br>
+ * Minolta Raw picture (.mrw)<br>
+ * Olympus Raw Format picture (.orf)<br>
+ * Portable Document Format (.pdf)<br>
+ * Perl script (.pl)<br>
+ * Portable Network Graphics (.png)<br>
+ * Raw Fujifilm picture (.raf)<br>
+ * Contax picture (.raw)<br>
+ * Rollei picture (.rdc)<br>
+ * Rich Text Format (.rtf)<br>
+ * Shell script (.sh)<br>
+ * Tar archive (.tar )<br>
+ * Tag Image File Format (.tiff)<br>
+ * Microsoft ASF (.wma)<br>
+ * Sigma/Foveon X3 raw picture (.x3f)<br>
+ * zip archive (.zip)
+
+<h3>unhide </h3>
+
+Unhide is a forensic tool to find processes and TCP/UDP ports hidden by
+rootkits, Linux kernel modules or by other techniques.  It includes two
+utilities: unhide and unhide-tcp.
+<br><br>
+unhide detects hidden processes using three techniques:<br>
+ - comparing the output of /proc and /bin/ps<br>
+ - comparing the information gathered from /bin/ps with the one gathered
+   from system calls (syscall scanning)<br>
+ - full scan of the process ID space (PIDs bruteforcing)
+<br><br>
+unhide-tcp identifies TCP/UDP ports that are listening but are not listed in
+/bin/netstat through brute forcing of all TCP/UDP ports available.
+<br><br>
+This package can be used by rkhunter in its daily scans.
+<h3>vdmfec</h3>
+VDMFEC implements Block ECC using a Forward Error Correction
+(FEC) code based on Vandermonde (VDM) matrices in GF(2^8) due
+to Luigi Rizzo. Given the FEC parameters K and N, with N
+greater than K, N blocks are written for every K input blocks
+in such a way that any K blocks are sufficient to reconstruct
+the data. That is, up to N - K blocks out of every group of N
+blocks may be lost without loss of data. Its primary
+application is intended to be in recovering data from
+unreliable media such as diskettes.
+<h3>vinetto</h3>
+A tool intended for forensics examinations. It is a console program to extract
+thumbnail images and their metadata from those thumbs.db files generated under
+Windows. Used in forensic environments
+</body></html>

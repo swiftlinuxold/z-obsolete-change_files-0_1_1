@@ -1,0 +1,57 @@
+default 0
+timeout -1
+color cyan/blue white/blue
+foreground ffffff
+background 003f7d
+gfxmenu /boot/grub/message
+
+title  Swift-Faster boot
+kernel /boot/vmlinuz quiet nosplash drvr=vesa lean Xtralean
+initrd /boot/initrd.gz
+
+title  Swift-Vesa
+kernel /boot/vmlinuz quiet nosplash drvr=vesa 
+initrd /boot/initrd.gz
+
+title  Swift-nv
+kernel /boot/vmlinuz quiet nosplash drvr=nv 
+initrd /boot/initrd.gz
+
+title  Swift-intel
+kernel /boot/vmlinuz quiet nosplash drvr=intel 
+initrd /boot/initrd.gz
+
+title  Swift-Netbook
+kernel /boot/vmlinuz quiet nosplash drvr=vesa vga=788
+initrd /boot/initrd.gz
+
+title  Swift-noNet
+kernel /boot/vmlinuz quiet nosplash drvr=vesa mean 
+initrd /boot/initrd.gz
+
+title  Swift-toram
+kernel /boot/vmlinuz quiet nosplash drvr=vesa toram 
+initrd /boot/initrd.gz
+
+title  Swift-no-X
+kernel /boot/vmlinuz quiet nosplash drvr=vesa lean Xtralean 3
+initrd /boot/initrd.gz
+
+title  Swift-Persist-Live only
+kernel /boot/vmlinuz quiet nosplash drvr=vesa rootfs=LABEL=X homefs=LABEL=X 
+initrd /boot/initrd.gz
+
+title  Swift-60Hz (force monitor to 58-62 Hz)
+kernel /boot/vmlinuz quiet nosplash vsync=58-62 
+initrd /boot/initrd.gz
+
+title  Swift-75Hz (force monitor to 73-77 Hz)
+kernel /boot/vmlinuz quiet nosplash vsync=73-77 
+initrd /boot/initrd.gz
+
+title  Swift-Failsafe
+kernel /boot/vmlinuz quiet nosplash nosound noapic noscsi nodma noapm nousb nopcmcia nofirewire noagp nomce nodhcp nodbus nocpufreq nobluetooth drvr=vesa nohal lean Xtralean xres=800x600
+initrd /boot/initrd.gz
+
+title Main Menu
+configfile /boot/grub/menu.lst

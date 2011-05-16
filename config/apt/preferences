@@ -1,0 +1,27 @@
+Package: *
+Pin: release a=wheezy
+Pin-Priority: 995
+
+Package: *
+Pin: release a=squeeze
+Pin-Priority: 650
+
+Package: *
+Pin: release a=lenny
+Pin-Priority: 400
+
+Package: *
+Pin: release a=unstable
+Pin-Priority: -1
+
+Package: *
+Pin: release o=Debian
+Pin-Priority: -1
+
+Package: *
+Pin: release o=MEPIS
+Pin-Priority: -1
+
+Package: linux-kbuild-2.6.32
+Pin: release n=mepis
+Pin-Priority: -1

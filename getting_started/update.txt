@@ -1,0 +1,13 @@
+ADDING FILES and DIRECTORIES TO THE REPOSITORY:
+git add (file)
+git add (directory)
+
+ADDING EVERYTHING WITHIN change_files to the repository:
+git add /usr/local/bin/develop/change_files/*
+
+COMMIT ALL: 
+1.  Enter "git commit -a"
+2.  When prompted, add your comments.
+
+UPDATE GITHUB: 
+git push origin master
