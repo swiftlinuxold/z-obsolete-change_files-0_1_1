@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # This script is derived from the antiX Linux remastering script.
-# The output is the ISO file for Diet Swift Linux.
+# The output is the ISO file for Swift Linux.
+# Note that there is a slightly different remaster file for each edition of Swift Linux.
+# The only difference is in the line beginning with "chroot $1 sh $DIR_SCRIPT"
 
 # Provides a synopsis:
 function usage {
@@ -158,12 +160,8 @@ function get_iso_path {
 		CD=$1
 		echo -e  "This script will remaster \"$CD\"  \n"
 	else
-		echo -e "Go to the VirtualBox menu, select Devices -> CD/DVD Devices,"
-		echo -e "and select the antiX Linux ISO."
-		echo -e "This mounts the virtual antiX Linux CD."
-		
-		echo -e "Press Enter when you are finished." 
-		read CD
+		echo -e "Checking for the mounted ISO file in the CD drive.
+		# read CD
 		CD=/dev/cdrom
 		echo
 		if [[ ! -e $CD ]]; then
@@ -344,8 +342,7 @@ function chroot_env {
 	#echo -e "You should now be in the environment you want to remaster. To check please type \"ls\" - you should see a root directory tree."
 	#echo -e "When done please type \"exit\" or press CTRL-D \n"
 	#set_chroot_commands $1
-	chroot $1
-	chroot $1 sh $DIR_SCRIPT/shared-diet.sh # Transform antiX Linux into Diet Swift Linux in chroot
+	chroot $1 sh $DIR_SCRIPT/shared-diet.sh # Transform antiX Linux into Swift Linux in chroot
 
 	umount_all $1
 	cleanup $1
@@ -656,4 +653,5 @@ chroot_env new-squashfs # Updates the contents of the rest of the Swift Linux li
 
 #ready?
 build new-squashfs
+echo -e "REMINDER: Unmount the ISO from the CD drive to boot from the hard drive the next time."
 
