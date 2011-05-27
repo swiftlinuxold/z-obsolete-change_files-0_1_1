@@ -10,11 +10,11 @@ if [ ! $( id -u ) -eq 0 ]; then
 	exit
 fi
 
-echo -e "Go to the VirtualBox menu, select Devices -> CD/DVD Devices,"
-echo -e "and select the antiX Linux ISO."
-echo -e "This mounts the virtual antiX Linux CD."
+echo "Go to the VirtualBox menu, select Devices -> CD/DVD Devices,"
+echo "and select the antiX Linux ISO."
+echo "This mounts the virtual antiX Linux CD."
 		
-echo -e "Press Enter when you are finished." 
+echo "Press Enter when you are finished." 
 read CD
 
 export USERNAME=$(logname)
