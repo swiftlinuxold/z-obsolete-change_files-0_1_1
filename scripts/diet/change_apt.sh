@@ -24,10 +24,6 @@ rm /etc/apt/preferences
 cp $DIR_CONFIG/apt/preferences /etc/apt
 chown root:root /etc/apt/preferences
 
-# Copy pre-existing package list to /var/lib/apt/lists
-echo "Copying package list to /var/lib/apt/lists"
-cp $DIR_CONFIG/apt/var_lib_apt_lists/* /var/lib/apt/lists
-
 # Update apt-get
 apt-get update
 

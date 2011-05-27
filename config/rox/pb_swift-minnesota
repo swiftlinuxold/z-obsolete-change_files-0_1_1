@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <pinboard>
-  <backdrop style="Stretched">/usr/share/wallpaper/rox-swiftlinux.jpg</backdrop>
-
+  <backdrop style="Stretched">/usr/share/wallpaper/rox-minnesota.jpg</backdrop>
+  
   <icon x="40" y="50" label="Files">~/</icon>
   <icon x="110" y="50" label="Help">/usr/share/swiftlinux/help/index.html</icon>
   <icon x="180" y="50" label="Control">/usr/local/bin/antixcc.sh</icon>
@@ -21,9 +21,10 @@
   <icon x="110" y="330" label="Geany">/usr/share/applications/geany.desktop</icon>
 
   <icon x="40" y="400" label="AbiWord">/usr/bin/abiword</icon>
-  <icon x="110" y="400" label="Gnumeric">/usr/share/applications/gnumeric.desktop</icon>
-  
+  <icon x="110" y="400" label="Gnumeric">/usr/share/applications/gnumeric.desktop</icon> 
 
+  <icon x="40" y="470" label="OO-Write">/usr/share/applications/ooo-writer.desktop</icon>
+  <icon x="110" y="470" label="OO-Calc">/usr/share/applications/ooo-calc.desktop</icon>
+  <icon x="180" y="470" label="OO-Impress">/usr/share/applications/ooo-impress.desktop</icon>
 
 </pinboard>
-

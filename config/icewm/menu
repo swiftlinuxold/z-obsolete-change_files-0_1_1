@@ -35,9 +35,6 @@ menu "Tools" /usr/share/icons/gTangish-2.0a1/32x32/categories/preferences-system
         separator
         prog "Search" /usr/share/icons/gTangish-2.0a1/32x32/actions/edit-find.png searchmonkey
 	}
-	menu "Editors" /usr/share/icons/gTangish-2.0a1/32x32/apps/accessories-text-editor.png {
-		prog "Nano" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png roxterm -e nano
-	}
 	menu "Shells" /usr/share/icons/gTangish-2.0a1/32x32/categories/applications-system.png {
 		prog "Bash" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -e bash --login
 		prog "Urxvt" /usr/share/icons/gTangish-2.0a1/32x32/apps/utilities-terminal.png urxvt -tr -sh 65 -fg white

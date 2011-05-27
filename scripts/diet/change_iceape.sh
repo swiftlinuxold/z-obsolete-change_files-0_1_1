@@ -14,13 +14,18 @@ chown root:root /usr/share/iceape/greprefs/all.js
 echo "Replacing /usr/share/iceape/defaults/profile/bookmarks.html"
 rm /usr/share/iceape/defaults/profile/bookmarks.html
 cp $DIR_CONFIG/iceape/bookmarks.html /usr/share/iceape/defaults/profile
-chown $USERNAME:users /usr/share/iceape/defaults/profile/bookmarks.html
 
 echo "Replacing /home/(username)/.mozilla/seamonkey/*.default/bookmarks.html"
 if [ -d "/home/$USERNAME" ]; then
     	rm /home/$USERNAME/.mozilla/seamonkey/*.default/bookmarks.html
 	cp $DIR_CONFIG/iceape/bookmarks.html /home/$USERNAME/.mozilla/seamonkey/*.default
+fi
+
+if [ -d "/home/$USERNAME" ]; then
+    	chown $USERNAME:users /usr/share/iceape/defaults/profile/bookmarks.html
 	chown $USERNAME:users /home/$USERNAME/.mozilla/seamonkey/*.default/bookmarks.html
+else
+	chown demo:users /usr/share/iceape/defaults/profile/bookmarks.html
 fi
 
 # Do not switch to new tabs
@@ -33,6 +38,4 @@ chown root:root /usr/share/iceape/defaults/pref/browser-prefs.js
 
 # Block ads, those annoying speed bumps on the Information Superhighway
 echo "Blocking ads, those annoying speed bumps on the Information Superhighway"
-rm /etc/hosts
-cp $DIR_CONFIG/iceape/hosts /etc
-chown $USERNAME:users /etc/hosts
+bash $DIR_SCRIPT/diet/block-advert.sh

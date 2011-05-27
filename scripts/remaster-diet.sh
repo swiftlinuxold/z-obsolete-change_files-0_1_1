@@ -323,7 +323,18 @@ function chroot_env {
 	# Keep the directory structure consistent from the chroot point of view.
 	echo "Copying the development files to the new-squashfs directory"
 	mkdir $REM/new-squashfs/usr/local/bin/develop
-	cp -r $DIR_DEVELOP $REM/new-squashfs/usr/local/bin/develop
+	cp -r $DIR_DEVELOP $REM/new-squashfs/usr/local/bin
+
+	# Update directory variables
+	export DIR_DEVELOP=/usr/local/bin/develop
+	export DIR_CF=$DIR_DEVELOP/change_files
+	export DIR_SCRIPT=$DIR_CF/scripts
+	export DIR_CONFIG=$DIR_CF/config
+	export DIR_HELP=$DIR_CF/help
+	
+	export DIR_WALLPAPERS=$DIR_DEVELOP/wallpapers
+	export DIR_OO=$DIR_DEVELOP/openoffice
+	export DIR_SOUNDS=$DIR_DEVELOP/sounds
 
 	# BEGIN CHROOT OPERATIONS
 	mount_all $1
@@ -333,8 +344,8 @@ function chroot_env {
 	#echo -e "You should now be in the environment you want to remaster. To check please type \"ls\" - you should see a root directory tree."
 	#echo -e "When done please type \"exit\" or press CTRL-D \n"
 	#set_chroot_commands $1
-
-	chroot $1 sh $DIR_SCRIPT/diet_root.sh # Transform antiX Linux into Diet Swift Linux in chroot
+	chroot $1
+	chroot $1 sh $DIR_SCRIPT/shared-diet.sh # Transform antiX Linux into Diet Swift Linux in chroot
 
 	umount_all $1
 	cleanup $1
@@ -639,9 +650,9 @@ $BUILD && {
 get_iso_path $1
 set_host_path
 create_remaster_env
-update_new_iso
+update_new_iso # Updates the parts of the Swift Linux live CD specific to the live CD operation
 
-chroot_env new-squashfs
+chroot_env new-squashfs # Updates the contents of the rest of the Swift Linux live CD
 
 #ready?
 build new-squashfs

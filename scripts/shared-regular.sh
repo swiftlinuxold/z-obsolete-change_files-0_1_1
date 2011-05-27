@@ -1,7 +1,7 @@
 #!/bin/bash
 # Proper header for a Bash script.
 
-sh $DIR_SCRIPT/diet_root.sh # antiX Linux to Diet Swift Linux
+sh $DIR_SCRIPT/shared-diet.sh # antiX Linux to Diet Swift Linux
 sh $DIR_SCRIPT/regular/add_forensic.sh # Add forensic packages
 sh $DIR_SCRIPT/regular/add_openoffice.sh # Change Synaptic/Apt-Get settings.
 sh $DIR_SCRIPT/regular/change_conky.sh # Change Conky

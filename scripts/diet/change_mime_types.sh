@@ -9,8 +9,13 @@ echo "Changing Bittorrent file association"
 if [ -d "/home/$USERNAME" ]; then
     	rm /home/$USERNAME/.config/rox.sourceforge.net/MIME-types/application_x-bittorrent 
 	cp $DIR_CONFIG/MIME-types/application_x-bittorrent /home/$USERNAME/.config/rox.sourceforge.net/MIME-types/
-	chown $USERNAME:users /home/$USERNAME/.config/rox.sourceforge.net/MIME-types/application_x-bittorrent
 fi
 rm /etc/skel/.config/rox.sourceforge.net/MIME-types/application_x-bittorrent
 cp $DIR_CONFIG/MIME-types/application_x-bittorrent /etc/skel/.config/rox.sourceforge.net/MIME-types/
-chown $USERNAME:users /etc/skel/.config/rox.sourceforge.net/MIME-types/application_x-bittorrent
+
+if [ -d "/home/$USERNAME" ]; then
+    	chown $USERNAME:users /home/$USERNAME/.config/rox.sourceforge.net/MIME-types/application_x-bittorrent
+	chown $USERNAME:users /etc/skel/.config/rox.sourceforge.net/MIME-types/application_x-bittorrent
+else
+	chown demo:users /etc/skel/.config/rox.sourceforge.net/MIME-types/application_x-bittorrent
+fi

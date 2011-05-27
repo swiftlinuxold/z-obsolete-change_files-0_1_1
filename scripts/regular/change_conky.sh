@@ -8,8 +8,13 @@ echo "Changing Conky"
 if [ -d "/home/$USERNAME" ]; then
     	rm /home/$USERNAME/.conkyrc
 	cp $DIR_CONFIG/conky/conkyrc-regular /home/$USERNAME/.conkyrc
-	chown $USERNAME:users /home/$USERNAME/.conkyrc
 fi
 rm /etc/skel/.conkyrc
 cp $DIR_CONFIG/conky/conkyrc-regular /etc/skel/.conkyrc
-chown $USERNAME:users /etc/skel/.conkyrc
+
+if [ -d "/home/$USERNAME" ]; then
+    	chown $USERNAME:users /home/$USERNAME/.conkyrc
+	chown $USERNAME:users /etc/skel/.conkyrc
+else
+	chown demo:users /etc/skel/.conkyrc
+fi

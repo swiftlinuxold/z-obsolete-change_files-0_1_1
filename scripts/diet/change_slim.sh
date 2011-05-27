@@ -8,7 +8,8 @@
 echo "Replacing the SLiM settings\n"
 rm /etc/slim.conf
 cp $DIR_CONFIG/slim/slim.conf /etc
-chown $USERNAME:users /etc/slim.conf
+rm /usr/share/slim/slim.template
+cp $DIR_CONFIG/slim/slim.template /usr/share/slim
 
 # Removing excess SLiM themes
 rm -r /usr/share/slim/themes/debian-moreblue
@@ -18,5 +19,12 @@ rm -r /usr/share/slim/themes/default
 
 echo "Replacing the SLiM wallpaper\n"
 rm /usr/share/slim/themes/antiX/*.jpg
-wget -U Firefox http://www.swiftlinux.org/wallpaper/login-swiftlinux.jpg
-mv login-swiftlinux.jpg /usr/share/slim/themes/antiX/background.jpg
+cp $DIR_WALLPAPERS/login-swiftlinux.jpg /usr/share/slim/themes/antiX/background.jpg
+
+if [ -d "/home/$USERNAME" ]; then
+    	chown $USERNAME:users /etc/slim.conf
+	chown $USERNAME:users /usr/share/slim/slim.template
+else
+	chown demo:users /etc/slim.conf
+	chown demo:users /usr/share/slim/slim.template
+fi

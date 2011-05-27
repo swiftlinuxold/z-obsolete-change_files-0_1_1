@@ -7,7 +7,7 @@ ROX PINBOARD DESKTOP
 
 Conky should display the correct edition and version number.
 
-There should be icons for OpenOffice Writer, Calc, and Impress.
+There should be icons for OpenOffice Writer, Calc, and Impress as well as those for the diet edition.
 
 FILE ASSOCIATIONS
 

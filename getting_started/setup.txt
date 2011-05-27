@@ -10,24 +10,19 @@ SUMMARY
 9.  Return to the snapshot you created and copy your project from the host OS to the guest OS.
 
 SET UP GUEST ADDITIONS (allows you to share files between the host and guest OS)
-1.  From the Guest OS, go to Devices -> Shared Folders and select the /home/(host username)/share directory on your host OS.  Select "Make Permanent".
+1.  From the Guest OS, go to Devices -> Shared Folders and select the /home/(host username)/share directory on your host OS.  Select "Make Permanent" option but NOT the auto-mount option.
 2.  Go to Devices -> Guest Additions.
-3.  In the Guest OS, enter "mkdir /home/(guest OS username)/host".
+3.  In the Guest OS, enter "mkdir /mnt/host".
 4.  As root in the Guest OS, enter the command "mount /media/cdrom"
-5.  As root in the Guest OS, install the guest additions by going to /media/cdrom and running the VBoxLinuxAdditions-x86.run package (by entering "sh VBoxLinuxAdditions-x86.run").
-6.  After the guest additions have been added, enter as root in the guest OS "mount -t vboxsf share /home/(guest OS username)/host".  
-7.  Now the /home/(guest OS username)/host directory in the guest OS is mirrored by the /home/(host OS username)/share directory in the host OS.
-8.  Each time you boot up the guest OS, you'll have to become root in the guest OS and enter ""mount -t vboxsf share /home/(guest OS username)/host" in order to resume sharing files between the guest and host OS.
+5.  As root in the Guest OS, install the guest additions by going to /media/cdrom and running the VBoxLinuxAdditions.run script (by entering "sh VBoxLinuxAdditions.run").
+6.  After the guest additions have been added, enter as root in the guest OS "mount -t vboxsf share /mnt/host".  
+7.  Now the /mnt/host directory in the guest OS is mirrored by the /home/(host OS username)/share directory in the host OS.
+8.  Each time you boot up the guest OS, you'll have to become root in the guest OS and enter "mount -t vboxsf share /mnt/host" in order to resume sharing files between the guest and host OS.
+9.  Power down VirtualBox and take a snapshot.
 
 UPDATE /etc/apt
 1.  As root, go to the /etc/apt directory and update the files apt.conf, preferences, and sources.list with their corresponding contents in the files at https://github.com/swiftlinux/change_files/tree/master/config/apt .
 2.  As root, enter "apt-get update".
-
-CREATE SPACE FOR THIS PROJECT
-1.  As root, enter the following commands:
-mkdir /usr/local/bin/develop
-cd /usr/local/bin
-chown (username):users develop
 
 INSTALL AND SET UP GIT
 1.  Follow the instructions at http://help.github.com/linux-set-up-git/ 
@@ -37,27 +32,21 @@ SNAPSHOT
 2.  When the virtual machine is off, take a snapshot.  This is the point you want to return to later in order to see the results of changes you make to the project WITHOUT having to set everything up again.
 
 DOWNLOAD THIS PROJECT
-1.  As your username, enter the following commands: 
-cd /usr/local/bin/develop
-git clone git://github.com/swiftlinux/change_files
+1.  As your username, enter the command "mkdir /home/(username)/develop".
+2.  Go to the development directory by entering "cd /home/(username)/develop".
+3.  Enter the command "git clone git://github.com/swiftlinux/change_files".
 
 COPYING THIS PROJECT TO THE HOST OS
 1.  As your username, enter the following commands:
-cd /usr/local/bin/develop
+cd /home/(username)/develop/change_files
 zip -r change_files.zip change_files
-mount -t vboxsf share /home/(guest OS username)/host
-su
-cp change_files.zip /home/(guest OS username)/host
-2.  In the host OS, copy the change_files.zip file from /home/(host OS username)/share to another directory.
+mount -t vboxsf share /mnt/host
+2.  Copy the change_files.zip file from /home/(username)/develop to /mnt/host .  The change_files.zip file should now be accessible from the host OS.
 
 COPYING THIS PROJECT FROM YOUR HOST OS TO GUEST OS
 1.  There will be times when you need to see the impact of your changes to this project.  After you zip the change_files directory and copy it from the host OS to your guest OS, restore the VirtualBox snapshot you took just after installing and setting up Git.  Then boot up your guest OS.
-2.  In the guest OS, enter as root "mount -t vboxsf share /home/(guest OS username)/host".
+2.  In the guest OS, enter as root "mount -t vboxsf share /mnt/host".
 3.  In the host OS, copy the change_files.zip archive to /home/(host OS username)/share
-4.  In the guest OS, enter the following commands as root:
-cp /home/(guest OS username)/host/change_files.zip /usr/local/bin/develop
-cd /usr/local/bin/develop
-chown (guest OS username):users change_files.zip
-exit
-unzip change_files.zip
-5.  Now your project is in the guest OS, and you are ready to resume work on it.
+4.  In the guest OS, copy the change_files.zip file from /mnt/host to /home/(username)/develop .
+5.  Unzip the change_files.zip file.
+6.  Now your project is in the guest OS, and you are ready to resume work on it.

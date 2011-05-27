@@ -1,7 +1,7 @@
 #!/bin/bash
 # Proper header for a Bash script.
 
-# This is the script for transforming antiX Linux to Regular Swift Linux.
+# This is the script for transforming antiX Linux to Minnesota Swift Linux.
 
 # Check for root user login
 if [ ! $( id -u ) -eq 0 ]; then
@@ -28,6 +28,14 @@ export DIR_SOUNDS=$DIR_DEVELOP/sounds
 cd $DIR_SCRIPT
 sh add_git_wallpapers.sh
 
-# antiX Linux to Diet Swift Linux
+# Add the OpenOffice repository
 cd $DIR_SCRIPT
-sh shared-diet.sh
+sh add_openoffice_dir.sh
+
+# Add the sounds repository
+cd $DIR_SCRIPT
+sh add_git_sounds.sh
+
+# antiX Linux to Regular Swift Linux
+cd $DIR_SCRIPT
+sh special/shared-minnesota.sh

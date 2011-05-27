@@ -334,7 +334,7 @@ function chroot_env {
 	#echo -e "When done please type \"exit\" or press CTRL-D \n"
 	#set_chroot_commands $1
 
-	chroot $1 sh $DIR_SCRIPT/special/icarly_root.sh # Transform antiX Linux into Regular Swift Linux in chroot
+	chroot $1 sh $DIR_SCRIPT/special/shared_icarly.sh # Transform antiX Linux into Regular Swift Linux in chroot
 
 	umount_all $1
 	cleanup $1

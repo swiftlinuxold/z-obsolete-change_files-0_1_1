@@ -204,7 +204,7 @@ uppercase no
 # stuff after 'TEXT' will be formatted on screen
 
 TEXT
-Magnum P.I. Swift Linux 0.1.0 (based on antiX Linux M11)   
+Chicago Swift Linux 0.1.1 (based on antiX Linux M11)   
 Kernel: $sysname $kernel     Machine: $machine    
 Time and Date: ${time %a %R (%l:%M %p) %b %e, %Y}
 CPU usage: ${cpu}%     RAM usage: $memperc% ($mem/$memmax)     Swap usage: $swapperc% ($swap/$swapmax)

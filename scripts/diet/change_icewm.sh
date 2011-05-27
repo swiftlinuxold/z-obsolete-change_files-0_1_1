@@ -12,11 +12,9 @@ echo "Changing the IceWM menu\n"
 if [ -d "/home/$USERNAME/.icewm" ]; then
     	rm /home/$USERNAME/.icewm/menu
 	cp $DIR_CONFIG/icewm/menu /home/$USERNAME/.icewm
-	chown $USERNAME:users /home/$USERNAME/.icewm/menu
 fi
 rm /etc/skel/.icewm/menu
 cp $DIR_CONFIG/icewm/menu /etc/skel/.icewm
-chown $USERNAME:users /etc/skel/.icewm/menu
 rm /usr/share/antiX/localisation/en/icewm/menu-en
 cp $DIR_CONFIG/icewm/menu /usr/share/antiX/localisation/en/icewm/menu-en
 chown root:root /usr/share/antiX/localisation/en/icewm/menu-en
@@ -26,11 +24,9 @@ echo "Changing the IceWM theme\n"
 if [ -d "/home/$USERNAME/.icewm" ]; then
     	rm /home/$USERNAME/.icewm/theme
 	cp $DIR_CONFIG/icewm/theme /home/$USERNAME/.icewm
-	chown $USERNAME:users /home/$USERNAME/.icewm/theme
 fi
 rm /etc/skel/.icewm/theme
 cp $DIR_CONFIG/icewm/theme /etc/skel/.icewm
-chown $USERNAME:users /etc/skel/.icewm/theme
 
 echo "Changing the IceWM startup file\n"
 
@@ -39,9 +35,20 @@ if [ -d "/home/$USERNAME/.icewm" ]; then
     	rm /home/$USERNAME/.icewm/startup
 	cp $DIR_CONFIG/icewm/startup-diet /home/$USERNAME/.icewm/startup
 	chmod a+x /home/$USERNAME/.icewm/startup
-	chown $USERNAME:users /home/$USERNAME/.icewm/startup
 fi
 rm /etc/skel/.icewm/startup
 cp $DIR_CONFIG/icewm/startup-diet /etc/skel/.icewm/startup
 chmod a+x /etc/skel/.icewm/startup
-chown $USERNAME:users /etc/skel/.icewm/startup
+
+if [ -d "/home/$USERNAME" ]; then
+    	chown $USERNAME:users /home/$USERNAME/.icewm/menu
+	chown $USERNAME:users /etc/skel/.icewm/menu
+	chown $USERNAME:users /home/$USERNAME/.icewm/theme
+	chown $USERNAME:users /etc/skel/.icewm/theme
+	chown $USERNAME:users /home/$USERNAME/.icewm/startup
+	chown $USERNAME:users /etc/skel/.icewm/startup
+else
+	chown demo:users /etc/skel/.icewm/menu
+	chown demo:users /etc/skel/.icewm/theme
+	chown demo:users /etc/skel/.icewm/startup
+fi

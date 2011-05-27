@@ -1,0 +1,5 @@
+Copy slim.template to /usr/share/slim/slim.template
+
+If then statement for changing ownership to USER or demo
+
+Check than pinboardtoggle.sh leads to correct pb file

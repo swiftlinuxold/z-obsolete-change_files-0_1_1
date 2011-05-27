@@ -36,7 +36,7 @@ Check the bookmarks in the Iceape browser.  Make sure anticapitalista's links an
 
 Go to Edit -> Preferences -> Browser -> Tabbed Browsing .  Make sure "Switch to new tabs opened from links" is UNSELECTED.  In the "Link open behavior" and "Links from other applications" sections, make sure "A new tab in the current window" is SELECTED.
 
-Go to Youtube and try to play a video.  The video should be blocked by the Flash Blocker application.
+Go to Youtube and try to play a video.  The video should be blocked by the Flash Blocker application, but you should have the option of playing it if you wish to.
 
 Make sure that when you close the Iceape browser, you get a dialog box asking you if you want to clear private data with all options selected.
 
@@ -70,7 +70,7 @@ Conky should display the correct edition and version number.
 
 The desktop should have the standard Swift Linux background for ROX.
 
-There should be icons for a file manager, web browser, video player, music player, terminal, control center, Swift Linux Help, Word, Geany, Leafpad, Gnumeric, Searchmonkey, applications, and Synaptic.
+There should be icons for file manager, help, control, terminal, search, apps, Synaptic, Browser, Sylpheed, Video, Music, Leafpad, Geany, AbiWord, and Gnumeric
 
 ICEWM
 

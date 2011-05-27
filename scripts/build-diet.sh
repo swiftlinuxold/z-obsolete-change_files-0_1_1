@@ -3,15 +3,26 @@
 
 # This is the script for transforming antiX Linux to Diet Swift Linux.
 
+# Check for root user login
+if [ ! $( id -u ) -eq 0 ]; then
+	echo "You must be root to run this script."
+	echo "Please enter su before running this script again."
+	exit
+fi
+
 export USERNAME=$(logname)
 export DIR_SCRIPT=$(pwd)
 cd ..
-export DIR_DEVELOP=$(pwd)
-cd config
-export DIR_CONFIG=$(pwd)
+export DIR_CF=$(pwd)
 cd ..
-cd help
-export DIR_HELP=$(pwd)
-cd $DIR_SCRIPT
+export DIR_DEVELOP=$(pwd)
+export DIR_CONFIG=$DIR_CF/config
+export DIR_HELP=$DIR_CF/help
 
-su -c "bash remaster-diet.sh"
+export DIR_WALLPAPERS=$DIR_DEVELOP/wallpapers
+
+cd $DIR_SCRIPT
+sh add_git_wallpapers.sh
+
+cd $DIR_SCRIPT
+bash remaster-diet.sh
