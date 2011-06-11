@@ -157,22 +157,16 @@ fi
 # Sets the path to iso or cdrom
 function get_iso_path {
 if [[ -e $1 ]]; then
-CD=$1
-# echo -e "This script will remaster \"$CD\" \n"
-# else
-# echo -e "Go to the VirtualBox menu, select Devices -> CD/DVD Devices,"
-# echo -e "and select the antiX Linux ISO."
-# echo -e "This mounts the virtual antiX Linux CD."
-
-# echo -e "Press Enter when you are finished."
-echo -e "Checking the virtual CD drive for the ISO file"
-# read CD
-CD=/dev/cdrom
-echo
-if [[ ! -e $CD ]]; then
-echo -e "Path or file doesn't exist, please try again \n"
-get_iso_path
-fi
+	CD=$1
+	echo -e "This script will remaster \"$CD\" \n"
+else
+	echo -e "Checking the virtual CD drive for the ISO file"
+	CD=/dev/cdrom
+	echo
+	if [[ ! -e $CD ]]; then
+		echo -e "Path or file doesn't exist, please try again \n"
+		get_iso_path
+	fi
 fi
 }
 
@@ -325,8 +319,17 @@ function chroot_env {
 # Before chroot operations, copy the development files to the new-squashfs directory.
 # Keep the directory structure consistent from the chroot point of view.
 echo "Copying the development files to the new-squashfs directory"
-mkdir $REM/new-squashfs/usr/local/bin/develop
-cp -r $DIR_DEVELOP $REM/new-squashfs/usr/local/bin/develop
+cp -r $DIR_DEVELOP $REM/new-squashfs/usr/local/bin
+
+echo "Updating directory variables"
+export DIR_DEVELOP=/usr/local/bin/develop
+export DIR_CF=$DIR_DEVELOP/change_files
+export DIR_SCRIPT=$DIR_CF/scripts
+export DIR_CONFIG=$DIR_CF/config
+export DIR_HELP=$DIR_CF/help
+export DIR_WALLPAPERS=$DIR_DEVELOP/wallpapers
+export DIR_OO=$DIR_DEVELOP/openoffice
+export DIR_SOUNDS=$DIR_DEVELOP/sounds
 
 # BEGIN CHROOT OPERATIONS
 mount_all $1
@@ -647,3 +650,4 @@ chroot_env new-squashfs
 
 #ready?
 build new-squashfs
+echo "Please unmount the antiX Linux ISO from the CD drive."

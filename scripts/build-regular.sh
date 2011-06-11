@@ -1,20 +1,44 @@
 #!/bin/bash
 # Proper header for a Bash script.
 
-# This is the script for transforming antiX Linux to Diet Swift Linux.
+# This is the script for transforming antiX Linux to Swift Linux.
 
+# Check for root user login
+if [ ! $( id -u ) -eq 0 ]; then
+	echo "You must be root to run this script."
+	echo "Please enter su before running this script again."
+	exit
+fi
+
+echo "Go to the VirtualBox menu, select Devices -> CD/DVD Devices,"
+echo "and select the antiX Linux ISO."
+echo "This mounts the virtual antiX Linux CD."
+		
+echo "Press Enter when you are finished." 
+read CD
+
+# Set the directory names
 export USERNAME=$(logname)
 export DIR_SCRIPT=$(pwd)
 cd ..
-cd openoffice
-export DIR_OO=$(pwd)
+export DIR_CF=$(pwd)
 cd ..
 export DIR_DEVELOP=$(pwd)
-cd config
-export DIR_CONFIG=$(pwd)
-cd ..
-cd help
-export DIR_HELP=$(pwd)
-cd $DIR_SCRIPT
+export DIR_CONFIG=$DIR_CF/config
+export DIR_HELP=$DIR_CF/help
 
-su -c "bash remaster-regular.sh"
+export DIR_WALLPAPERS=$DIR_DEVELOP/wallpapers
+export DIR_OO=$DIR_DEVELOP/openoffice
+export DIR_SOUNDS=$DIR_DEVELOP/sounds
+
+# Add the wallpapers
+cd $DIR_SCRIPT
+sh add_git_wallpapers.sh
+
+# Add the OpenOffice repository
+cd $DIR_SCRIPT
+sh add_openoffice_dir.sh
+
+# antiX Linux to Regular Swift Linux
+cd $DIR_SCRIPT
+bash remaster-regular.sh

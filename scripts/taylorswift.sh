@@ -38,4 +38,4 @@ sh add_git_sounds.sh
 
 # antiX Linux to Regular Swift Linux
 cd $DIR_SCRIPT
-sh special/shared-chicago.sh
+sh shared-taylorswift.sh
